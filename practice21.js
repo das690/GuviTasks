@@ -1,0 +1,5 @@
+function isAnagram(s, t) {
+    return s.split('').sort().join('') === t.split('').sort().join('');
+}
+console.log(isAnagram("listen", "silent"));
+console.log(isAnagram("rat", "cat"));
