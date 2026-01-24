@@ -3,343 +3,340 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Great Indian Food Festival</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <style>
-        /* --- 1. Global Styles --- */
-        :root {
-            --primary-color: #d32f2f; /* Deep Red */
-            --secondary-color: #ff9800; /* Saffron Orange */
-            --bg-color: #fff8f0; /* Soft Cream */
-            --text-color: #333;
-            --card-bg: #ffffff;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            font-family: 'Poppins', sans-serif;
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            margin: 0;
-        }
-
-        /* --- 2. Hero Section --- */
-        header {
-            background: linear-gradient(135deg, #b71c1c, #f57f17);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            margin-bottom: 40px;
-        }
-
-        header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        header p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-            opacity: 0.9;
-        }
-
-        /* --- 3. Event Info Box --- */
-        .info-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 50px;
-            padding: 0 20px;
-        }
-
-        .info-card {
-            background: white;
-            padding: 25px 40px;
-            border-radius: 50px;
-            box-shadow: 0 10px 25px rgba(211, 47, 47, 0.15);
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
-            border: 2px solid var(--secondary-color);
-        }
-
-        .info-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .info-label {
-            font-weight: 600;
-            color: var(--primary-color);
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-        }
-
-        .info-value {
-            font-size: 1.1rem;
-            font-weight: 400;
-        }
-
-        /* --- 4. Section Titles --- */
-        .section-title {
-            text-align: center;
-            color: var(--primary-color);
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            margin-top: 60px;
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background-color: var(--secondary-color);
-            margin: 10px auto 0;
-            border-radius: 2px;
-        }
-
-        /* --- 5. Stall Grid --- */
-        .stall-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-
-        .card-img-container {
-            height: 220px;
-            overflow: hidden;
-        }
-
-        .card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .card:hover img {
-            transform: scale(1.1);
-        }
-
-        .card-content {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .card h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-        }
-
-        .btn {
-            margin-top: auto;
-            background-color: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: background 0.3s;
-            align-self: center;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: #b71c1c;
-        }
-
-        /* --- 6. Booking Section (NEW) --- */
-        .booking-section {
-            background-color: white;
-            max-width: 600px;
-            margin: 0 auto 80px auto; /* Centered with bottom margin */
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--text-color);
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: 'Poppins', sans-serif;
-            box-sizing: border-box; /* Ensures padding doesn't widen width */
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: var(--secondary-color);
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 15px;
-            font-size: 1.1rem;
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.4);
-        }
-
-        .submit-btn:hover {
-            box-shadow: 0 6px 20px rgba(211, 47, 47, 0.6);
-            transform: translateY(-2px);
-        }
-
-        /* --- 7. Footer --- */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: #fff;
-            font-size: 0.9rem;
-        }
-
-        /* Mobile Adjustments */
-        @media (max-width: 600px) {
-            header h1 { font-size: 2.5rem; }
-            .info-card { flex-direction: column; gap: 15px; text-align: center; border-radius: 20px; }
-            .booking-section { padding: 25px; margin: 0 20px 80px 20px; }
-        }
-    </style>
+    <title>Coaching - Online Learning Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <h1>The Great Indian Food Festival</h1>
-        <p>A culinary journey through the spicy, sweet, and savory world of Indian cuisine. Join us in Goa!</p>
-    </header>
-
-    <div class="info-container">
-        <div class="info-card">
-            <div class="info-item">
-                <span class="info-label">Date</span>
-                <span class="info-value">Dec 19-28, 2025</span>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">Coaching<span>.</span></div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <a href="#" class="btn-login">Login</a>
+                <a href="#" class="btn-signup">Sign Up</a>
             </div>
-            <div class="info-item">
-                <span class="info-label">Location</span>
-                <span class="info-value">Panaji, Goa</span>
-            </div>
-            <div class="info-item">
-                <span class="info-label">Time</span>
-                <span class="info-value">10 AM - 10 PM</span>
+            <div class="mobile-menu-icon">
+                <i class="fa-solid fa-bars"></i>
             </div>
         </div>
-    </div>
+    </nav>
 
-    <h2 class="section-title">Our Food Stalls</h2>
-    <div class="stall-grid">
-        <article class="card">
-            <div class="card-img-container"><img src="street-food.jpg" alt="Street Food"></div>
-            <div class="card-content">
-                <h3>Street Food</h3>
-                <p>Spicy Pani Puri, crispy Vada Pav, and tangy Chaat that will explode with flavor.</p>
-                <a href="#" class="btn">View Menu</a>
+    <header class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <p class="tagline">Successful coaches are learners</p>
+                <h1>Good <span>coaching</span> is good teaching & nothing else.</h1>
+                <p class="description">In a coaching role, you ask the questions and rely on the staff, who become the experts, to provide the information.</p>
+                <div class="hero-btns">
+                    <a href="#" class="btn-primary">View Courses</a>
+                    <a href="#" class="btn-text">Get Free Consultation</a>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="What do you want to learn today?">
+                    <button>Search</button>
+                </div>
             </div>
-        </article>
-        <article class="card">
-            <div class="card-img-container"><img src="regional.jpg" alt="Regional"></div>
-            <div class="card-content">
-                <h3>Regional Flavors</h3>
-                <p>Authentic curries from Punjab to Kerala. Experience the diversity of India.</p>
-                <a href="#" class="btn">View Menu</a>
+            <div class="hero-image">
+                <div class="circle-bg"></div>
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Happy Student">
             </div>
-        </article>
-        <article class="card">
-            <div class="card-img-container"><img src="dessert.webp" alt="Sweets"></div>
-            <div class="card-content">
-                <h3>Sweet Tooth</h3>
-                <p>Hot Gulab Jamuns, syrupy Jalebis, and soft Rasgullas to end your meal.</p>
-                <a href="#" class="btn">View Menu</a>
-            </div>
-        </article>
-        <article class="card">
-            <div class="card-img-container"><img src="beverage.jpg" alt="Beverages"></div>
-            <div class="card-content">
-                <h3>Beverages</h3>
-                <p>Cool down with a mango Lassi or energize with a hot Masala Chai.</p>
-                <a href="#" class="btn">View Menu</a>
-            </div>
-        </article>
-    </div>
+        </div>
+    </header>
 
-    <h2 class="section-title">Book Your Tickets</h2>
-    <div class="booking-section">
-        <form>
-            <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" placeholder="Ex: Rahul Sharma" required>
-            </div>
+    <section class="partners">
+        <div class="container partners-grid">
+            <i class="fa-brands fa-spotify"></i>
+            <i class="fa-brands fa-amazon"></i>
+            <i class="fa-brands fa-cisco"></i>
+            <i class="fa-brands fa-airbnb"></i>
+            <i class="fa-brands fa-google"></i>
+        </div>
+    </section>
 
-            <div class="form-group">
-                <label for="location">Your Location</label>
-                <input type="text" id="location" name="location" placeholder="Ex: Mumbai, Maharashtra" required>
+    <section class="featured">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured <span>Course</span></h2>
+                <p>The feature courses are we invented our teaching part</p>
             </div>
-
-            <div class="form-group">
-                <label for="tickets">Number of Tickets</label>
-                <input type="number" id="tickets" name="tickets" min="1" max="10" placeholder="1" required>
+            
+            <div class="course-grid">
+                <div class="course-card">
+                    <div class="card-img" style="background-color: #e0e7ff;"><i class="fa-solid fa-book-open"></i></div>
+                    <div class="card-body">
+                        <span class="category">Motion Graphics</span>
+                        <h3>Motion Graphics: Create a Nice Typography Animation</h3>
+                        <div class="card-footer">
+                            <span class="price">$33.99</span>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i> 4.8
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="card-img" style="background-color: #fce7f3;"><i class="fa-solid fa-puzzle-piece"></i></div>
+                    <div class="card-body">
+                        <span class="category">Web Dev</span>
+                        <h3>Advance PHP knowledge with HTML maker smart work</h3>
+                        <div class="card-footer">
+                            <span class="price">$22.99</span>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i> 4.5
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="card-img" style="background-color: #dbeafe;"><i class="fa-solid fa-rocket"></i></div>
+                    <div class="card-body">
+                        <span class="category">Science</span>
+                        <h3>Education Software and PHP and JS System Script</h3>
+                        <div class="card-footer">
+                            <span class="price">$45.00</span>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i> 4.9
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="card-img" style="background-color: #ffedd5;"><i class="fa-solid fa-chart-pie"></i></div>
+                    <div class="card-body">
+                        <span class="category">Analysis</span>
+                        <h3>The Complete Financial Analyst Training & Investing</h3>
+                        <div class="card-footer">
+                            <span class="price">$56.00</span>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i> 4.7
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="card-img" style="background-color: #fae8ff;"><i class="fa-solid fa-bullhorn"></i></div>
+                    <div class="card-body">
+                        <span class="category">Marketing</span>
+                        <h3>Marketing 2024: Complete Guide To Instagram Growth</h3>
+                        <div class="card-footer">
+                            <span class="price">$28.00</span>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i> 4.6
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="course-card">
+                    <div class="card-img" style="background-color: #d1fae5;"><i class="fa-solid fa-coins"></i></div>
+                    <div class="card-body">
+                        <span class="category">Finance</span>
+                        <h3>Learn 3D Modeling and Design for Beginners</h3>
+                        <div class="card-footer">
+                            <span class="price">$21.00</span>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i> 4.2
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <div class="center-btn">
+                <a href="#" class="btn-primary">Explore Details</a>
+            </div>
+        </div>
+    </section>
 
-            <button type="submit" class="btn submit-btn">Confirm Booking</button>
-        </form>
-    </div>
+    <section class="why-learn">
+        <div class="container">
+            <div class="section-header white-text">
+                <h2>Why <span>learn</span> with our courses?</h2>
+                <p>We are providing the best courses and top classes. And incredible placement training.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="icon-box"><i class="fa-solid fa-book"></i></div>
+                    <h3>01. Learn</h3>
+                    <p>Learn continually. There is always "one more thing" to learn.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon-box"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h3>02. Graduate</h3>
+                    <p>Be ready to participate as you learn.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon-box"><i class="fa-solid fa-briefcase"></i></div>
+                    <h3>03. Work</h3>
+                    <p>Hard work beats talent when talent doesn't work hard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>Top <span>Categories</span></h2>
+                <p>100+ unique online course list designs</p>
+            </div>
+            <div class="category-flex">
+                <div class="cat-card">
+                    <i class="fa-solid fa-bullhorn" style="color:#ff5252;"></i>
+                    <h4>Digital Marketing</h4>
+                    <span>25 Courses</span>
+                </div>
+                <div class="cat-card">
+                    <i class="fa-solid fa-code" style="color:#448aff;"></i>
+                    <h4>Web Development</h4>
+                    <span>16 Courses</span>
+                </div>
+                <div class="cat-card">
+                    <i class="fa-solid fa-palette" style="color:#7c4dff;"></i>
+                    <h4>Art & Humanities</h4>
+                    <span>76 Courses</span>
+                </div>
+                <div class="cat-card">
+                    <i class="fa-solid fa-user-tie" style="color:#ffd740;"></i>
+                    <h4>Personal Development</h4>
+                    <span>22 Courses</span>
+                </div>
+                <div class="cat-card">
+                    <i class="fa-solid fa-laptop-code" style="color:#1de9b6;"></i>
+                    <h4>IT and Software</h4>
+                    <span>110 Courses</span>
+                </div>
+                <div class="cat-card">
+                    <i class="fa-solid fa-pen-nib" style="color:#69f0ae;"></i>
+                    <h4>Graphic Design</h4>
+                    <span>85 Courses</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-box">
+                <div class="newsletter-content">
+                    <h2>Subscribe For Get Update Every New Courses</h2>
+                    <p>20k+ students daily learn with Edu-Coaching Courses.</p>
+                    <form>
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+                <img src="https://randomuser.me/api/portraits/women/44.jpg" class="avatar float-1" alt="">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="avatar float-2" alt="">
+                <img src="https://randomuser.me/api/portraits/women/65.jpg" class="avatar float-3" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="video-promo">
+        <div class="container video-container">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Video Thumbnail">
+            <div class="play-btn">
+                <i class="fa-solid fa-play"></i>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Testimonials</h2>
+                <p>What our students say about us</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="test-card">
+                    <img src="https://randomuser.me/api/portraits/women/11.jpg" alt="User">
+                    <p>"The best coaching center for learning. Friendly environment."</p>
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                </div>
+                <div class="test-card active">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="User">
+                    <p>"Simply amazing. The instructors are world class and the pacing is perfect."</p>
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                </div>
+                <div class="test-card">
+                    <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="User">
+                    <p>"Helped me launch my career in Web Development. Highly recommended."</p>
+                    <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2025 The Great Indian Food Festival. All rights reserved.</p>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3>Coaching<span>.</span></h3>
+                <p>We are providing the best courses and top classes. And incredible placement training.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Courses</h4>
+                <ul>
+                    <li><a href="#">Classroom courses</a></li>
+                    <li><a href="#">Virtual classroom courses</a></li>
+                    <li><a href="#">E-learning courses</a></li>
+                    <li><a href="#">Video Courses</a></li>
+                    <li><a href="#">Offline Courses</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="#">Learners</a></li>
+                    <li><a href="#">Partners</a></li>
+                    <li><a href="#">Developers</a></li>
+                    <li><a href="#">Transactions</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Professional Education</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Admissions</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Programs</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>More</h4>
+                <ul>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Investors</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
